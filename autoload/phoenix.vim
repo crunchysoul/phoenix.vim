@@ -237,12 +237,12 @@ endfunction
 
 function! phoenix#projections() abort
   return  {
-        \  "web/controllers/*_controller.ex": {
+        \  "lib/*_web/controllers/*_controller.ex": {
         \     "type": "controller",
         \     "alternate": "test/controllers/{}_controller_test.exs",
         \     "template": s:template_for('controller', 'Controller')
         \  },
-        \  "web/models/*.ex": {
+        \  "lib/**/**/schemas/*.ex": {
         \     "type": "model",
         \     "alternate": "test/models/{}_test.exs",
         \     "template": s:template_for('model', 'Model')
@@ -268,7 +268,7 @@ function! phoenix#projections() abort
         \  },
         \  "web/static/css/*.css": { "type": "stylesheet" },
         \  "web/static/js/*.js": { "type": "javascript" },
-        \  "web/router.ex": { "type": "router" },
+        \  "lib/*_web/router.ex": { "type": "router" },
         \  "config/*.exs": { "type": "config" },
         \  "mix.exs":     { "type": "mix" },
         \  "*": { "start": "mix phoenix.server",
